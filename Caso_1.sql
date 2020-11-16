@@ -1,12 +1,11 @@
 -- Caso 1
 -- Creacion de Entidades
 CREATE TABLE trabajador(
-    rut INT,
+    rut VARCHAR(15) NOT NULL,
     nombre VARCHAR(50) NOT NULL,
     direccion VARCHAR(250) NOT NULL,
-    departamento_id SERIAL,
-    PRIMARY KEY(rut),
-    FOREIGN KEY(departamento_id) REFERENCES departamentos(id)
+    departamento_id REFERENCES departamentos(id),
+    PRIMARY KEY(rut)
 );
 
 CREATE TABLE liquidaciones(
