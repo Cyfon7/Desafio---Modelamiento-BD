@@ -4,35 +4,37 @@ CREATE DATABASE caso_2_escuela;
 
 -- Creacion de Entidades
 CREATE TABLE cursos(
-    id SERIAL,
-    nombre VARCHAR(80) NOT NULL,
+    id INT,
+    nombre VARCHAR(80),
     PRIMARY KEY(id)
 );
 
 CREATE TABLE departamentos(
-    id SERIAL,
-    nombre VARCHAR(80) NOT NULL,
+    id INT,
+    nombre VARCHAR(80),
     PRIMARY KEY(id)
 );
 
 -- Entidades Principales
 CREATE TABLE alumnos(
-    rut VARCHAR(15) NOT NULL,
-    nombre VARCHAR(50) NOT NULL,
-    curso SERIAL REFERENCES cursos(id),
-    PRIMARY KEY(rut)
+    id INT,
+    rut VARCHAR(15),
+    nombre VARCHAR(50),
+    curso_id INT REFERENCES cursos(id),
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE profesores(
-    id SERIAL,
-    nombre VARCHAR(50) NOT NULL,
-    departamento SERIAL REFERENCES departamentos(id),
+    id INT,
+    nombre VARCHAR(50),
+    departamento_id INT REFERENCES departamentos(id),
     PRIMARY KEY(id)
 );
 
 -- Creacion Tabla Intermendia
 CREATE TABLE pruebas(
-    alumno_id VARCHAR(15) REFERENCES alumnos(rut),
-    profesor_id SERIAL REFERENCES profesores(id),
+    id INT,
+    alumno_id INT REFERENCES alumnos(id),
+    profesor_id INT REFERENCES profesores(id),
     puntaje INT
 );
