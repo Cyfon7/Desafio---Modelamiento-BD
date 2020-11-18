@@ -3,9 +3,6 @@
 CREATE DATABASE caso_1_empresa;
 
 -- Creacion de Entidades
-
--- Un trabajador puede pertenecer a un departamento,
--- un departamento puede contener uno o mas trabajadores
 CREATE TABLE departamentos(
     id INT,
     nombre VARCHAR(50),
@@ -14,7 +11,7 @@ CREATE TABLE departamentos(
 
 -- Entidades Principales
 CREATE TABLE trabajadores(
-    id INT 
+    id INT,
     rut VARCHAR(15),
     nombre VARCHAR(50),
     direccion VARCHAR(250),
