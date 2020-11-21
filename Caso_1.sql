@@ -23,13 +23,6 @@ CREATE TABLE liquidaciones(
     id INT,
     fecha DATE,
     url_archivo VARCHAR(50),
-    PRIMARY KEY(id)
-);
-
--- Creacion Tabla Intermedia
-CREATE TABLE trabajador_liquidacion(
-    id INT,
     trabajador_id INT REFERENCES trabajadores(id),
-    liquidacion_id INT REFERENCES liquidaciones(id),
-    PRIMARY KEY (id)
-);
+    PRIMARY KEY(id)
+)
